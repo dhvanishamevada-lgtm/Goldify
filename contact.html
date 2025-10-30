@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Goldify</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="contact-info">
+            <h2>Customer Support</h2>
+            <div class="support-details">
+                <h3>Email Support</h3>
+                <p>In case you are not able to reach us on our customer care number, please write to us at:</p>
+                <p>Email: <a href="mailto:dhvanishamevada@gmail.com">dhvanishamevada@gmail.com</a></p>
+                <p>Our team will get back to you within 24-48 working hours.</p>
+            </div>
+
+            <div class="social-details">
+                <h3>Customer Feedback & Review</h3>
+                <p>Liked our products? Do share a review over DM on Instagram</p>
+                <p>Instagram: <a href="https://instagram.com/goldifybrand" target="_blank">@goldifybrand</a></p>
+            </div>
+
+            <div class="address">
+                <h3>Location</h3>
+                <p>Goldifysite</p>
+                <p>Surat, Gujarat 394210</p>
+            </div>
+        </section>
+
+        <section class="contact-form">
+            <h2>Contact Us</h2>
+            <form id="contactForm" onsubmit="return validateForm(event)">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required placeholder="Your name">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required placeholder="Your email">
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Your phone number">
+                </div>
+
+                <div class="form-group">
+                    <label for="comment">Comment</label>
+                    <textarea id="comment" name="comment" rows="4" placeholder="Your message"></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Send</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Goldify. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        function validateForm(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const comment = document.getElementById('comment').value;
+
+            // Basic validation
+            if (!name || !email) {
+                alert('Please fill in all required fields.');
+                return false;
+            }
+
+            // Email validation
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                alert('Please enter a valid email address.');
+                return false;
+            }
+
+            // If validation passes, you can add code here to handle form submission
+            alert('Thank you for your message. We will get back to you soon!');
+            document.getElementById('contactForm').reset();
+            return false;
+        }
+    </script>
+</body>
+</html>
